@@ -1,0 +1,40 @@
+/*
+ * public class NumArray {
+
+int[] nums;
+
+public NumArray(int[] nums) {
+    for(int i = 1; i < nums.length; i++)
+        nums[i] += nums[i - 1];
+    
+    this.nums = nums;
+}
+
+public int sumRange(int i, int j) {
+    if(i == 0)
+        return nums[j];
+    
+    return nums[j] - nums[i - 1];
+}
+}
+*/
+class NumArray {
+    int n;
+    int[] copy;
+    public NumArray(int[] nums) {
+        n = nums.length;
+        copy = Arrays.copyOf(nums, n);
+    }
+    
+    public int sumRange(int i, int j) {
+        int sum = 0;
+        while ( i <= j ) sum += copy[i++];
+        return sum;
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * int param_1 = obj.sumRange(i,j);
+ */
